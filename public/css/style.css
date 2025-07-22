@@ -1,0 +1,278 @@
+/* General Body & Typography */
+:root {
+    --primary-color: #6C63FF; /* Purple-ish blue */
+    --secondary-color: #E0E2F4; /* Light background for selections */
+    --accent-color: #4CAF50; /* Green for send button */
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #ddd;
+    --bg-light: #F8F9FA;
+    --bg-dark: #E9ECEF;
+    --bg-card: #FFFFFF;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --radius-small: 8px;
+    --radius-medium: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+
+/* Main Wrapper & Header */
+.main-wrapper {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-medium);
+    box-shadow: 0 10px 30px var(--shadow-light);
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin-top: 0;
+}
+
+/* Card Container (for main content) */
+.card-container {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-medium);
+    padding: 25px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Soft inner shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+
+/* Selection Area (Mode & Emotional Choice) */
+.selection-area {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.control-group {
+    flex: 1; /* Distribute space evenly */
+    min-width: 280px; /* Minimum width before wrapping */
+}
+
+.control-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.app-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-small);
+    background-color: white;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666' width='18px' height='18px'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.app-select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+/* Chat Area */
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-box {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-small);
+    padding: 15px;
+    height: 350px; /* Increased height for better visibility */
+    overflow-y: auto;
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Chat Messages */
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 85%;
+}
+
+.message p {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: var(--radius-small);
+    line-height: 1.5;
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+.message.user {
+    align-self: flex-end;
+}
+
+.message.user p {
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom-right-radius: 4px; /* Slight tweak for speech bubble feel */
+}
+
+.message.ai, .message.ai-initial {
+    align-self: flex-start;
+}
+
+.message.ai p, .message.ai-initial p {
+    background-color: var(--bg-card);
+    color: var(--text-color);
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 4px; /* Slight tweak for speech bubble feel */
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    overflow: hidden; /* Tambahan penting agar gambar tidak keluar dari lingkaran */
+}
+
+/* Gambar di dalam avatar agar tampil seperti icon */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+
+.message.user .avatar { order: 2; margin-left: auto; } /* User avatar on the right */
+.message.user p { order: 1; } /* User message on the left of avatar */
+
+/* Input Area */
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+.app-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-small);
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.app-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.app-button {
+    padding: 12px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.app-button:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+.app-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .main-wrapper {
+        padding: 20px;
+    }
+
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .selection-area {
+        flex-direction: column; /* Stack selection elements on small screens */
+    }
+
+    .control-group {
+        min-width: unset; /* Remove min-width to allow full width */
+        width: 100%;
+    }
+
+    .input-area {
+        flex-direction: column; /* Stack input and button on small screens */
+        gap: 15px;
+    }
+
+    .app-button {
+        width: 100%;
+    }
+} 

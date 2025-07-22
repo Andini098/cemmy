@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEMMY: Teman Virtual Anonim</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <div class="main-wrapper">
+        <header class="app-header">
+            <h1>CEMMY</h1>
+            <p class="tagline">Cemmy Selalu Ada Untukmu.</p>
+        </header>
+
+        <div class="card-container">
+            <p class="intro-text">Jangan ragu buat cerita, gak ada yang bakal nge-judge di sini!</p>
+
+            <div class="selection-area">
+                <div class="mode-selection control-group">
+                    <label for="mode" class="control-label">Pilih Mode:</label>
+                    <select id="mode" class="app-select">
+                        <option value="mendengarkan">Mode Mendengarkan Saja</option>
+                        <option value="saran/ngobrol">Mode Beri Saran / Ngobrol</option>
+                    </select>
+                </div>
+
+                <div class="emotional-choice control-group">
+                    <label for="emotionalChoice" class="control-label">Bagaimana Perasaan Mu Saat Ini?</label>
+                    <select id="emotionalChoice" class="app-select">
+                        <option value="">Pilih (Opsional)</option>
+                        <option value="senang">Senang</option>
+                        <option value="sedih">Sedih</option>
+                        <option value="marah">Marah</option>
+                        <option value="cemas">Cemas</option>
+                        <option value="bingung">Bingung</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="chat-area">
+                <div class="chat-box" id="chatBox">
+                    <div class="message ai-initial">
+                        <span class="avatar"><img src="../images/ai.png" alt=""></span>
+                        <p>Halo! Saya CEMMY, Gimana Hari ini?</p>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <input type="text" id="messageInput" placeholder="Ketik pesan Anda di sini..." class="app-input">
+                    <button id="sendButton" class="app-button">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

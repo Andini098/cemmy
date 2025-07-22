@@ -1,0 +1,32 @@
+{
+  "name": "cemmy",
+  "version": "1.0.0",
+  "description": "Teman virtual anonim berbasis AI.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cemmy",
+    "ai",
+    "chatbot",
+    "virtual-companion",
+    "anonymous",
+    "nodejs",
+    "socket.io"
+  ],
+  "author": "Your Name/Organization (Opsional)",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
